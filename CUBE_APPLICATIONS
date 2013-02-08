@@ -1,0 +1,10 @@
+HOW THE WONDROUS WEATHER CUBE WORKS
+
+SIDE 1: Weather (Hot = red, Cold = blue -- have a scale)
+SIDE 6: # of Emails (Green, blinks faster if you have more *important* emails)
+SIDE 2: Twitter: emotion of tweets (Yellow -- the more positive emotions, the brighter) 
+SIDE 5: A smiley face drawn on 
+SIDE 3: Blank (rotation axis, maybe make it pretty somehow)
+SIDE 4: Blank (rotation axis, maybe make it pretty somehow)
+
+Distinguishes which side is which through the use of photosensors
