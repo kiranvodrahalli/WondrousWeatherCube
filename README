@@ -1,6 +1,6 @@
 /* COS 436 Lab 0
  * Authors: Kiran Vodrahalli, Collin Stedman, Raymond Zhong, Dale Markowitz
- * Updated: Feb 7, 2013
+ * Updated: Feb 13, 2013
  * WONDROUS WEATHER CUBE */ 
 
-A cube that tells you the local weather. And your CPU usage. 
+A cube that tells you the local weather. And delta NASDAQ. 
