@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 
 #using the serial (for Arduino)
 #port might be different for different computers
-#assume that the min temperature is -10 degrees C
+#assume that the min temperature is 0 degrees F
 
 ser = serial.Serial('/dev/tty.usbmodem621', 9600)
 ser.close()
@@ -33,9 +33,6 @@ while True:
     #using regular expressions 
     nums = re.findall(r'\d+', text)
     temperature = int(float(nums[0]))
-    
-    #convert to Farenheit
-    temperature = int((9/5)*temperature + 32)
     
     time.sleep(1)
     #write to Arduino Serial
