@@ -1,10 +1,19 @@
+/* COS 436 Lab 0: Wondrous Weather Cube
+ * Author: Kiran Vodrahalli 
+ * Date: Feb 14, 2013
+ */
+
 HOW THE WONDROUS WEATHER CUBE WORKS
 
-SIDE 1: Weather (Hot = red, Cold = blue -- have a scale)
-SIDE 6: # of Emails (Green, blinks faster if you have more *important* emails)
-SIDE 2: Twitter: emotion of tweets (Yellow -- the more positive emotions, the brighter) 
-SIDE 5: A smiley face drawn on 
-SIDE 3: Blank (rotation axis, maybe make it pretty somehow)
-SIDE 4: Blank (rotation axis, maybe make it pretty somehow)
+SIDE 1: Weather (Hot = orange, Cold = blue: color shades are scaled)
+SIDE 6: NASDAQ %change (Red = -, Green = +: color shades are scaled)
+        Also, the higher the magnitude, the faster the cube blinks. 
 
-Distinguishes which side is which through the use of photosensors
+The other four sides are transparent so you the color of the cube can diffuse 
+nicely.
+
+The cube istinguishes which app is running through the use of a photosensor:
+If the photosensor is facedown, the weather app will run. If the photosensor is
+faceup, the NASDAQ app will run. 
+
+In the future, the cube could potentially be extended to more functionality. 

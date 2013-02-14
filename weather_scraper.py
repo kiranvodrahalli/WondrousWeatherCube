@@ -1,5 +1,6 @@
+# COS 436: Lab 0 : Wondrous Weather Cube
 # Author: Kiran Vodrahalli
-# Date: Feb 7, 2013
+# Date: Feb 14, 2013
 # weather_scraper.py: Scrapes Princeton current temperature off weather.com
 # using Python, BeautifulSoup, html5lib, urllib2, re, serial, and time. 
 
@@ -13,6 +14,8 @@ from bs4 import BeautifulSoup
 
 #using the serial (for Arduino)
 #port might be different for different computers
+#assume that the min temperature is -10 degrees C
+
 ser = serial.Serial('/dev/tty.usbmodem621', 9600)
 ser.close()
 ser.open()
@@ -27,16 +30,24 @@ while True:
 
     #string operations to get as an integer
     text = str(report[0])
+    #using regular expressions 
     nums = re.findall(r'\d+', text)
     temperature = int(float(nums[0]))
-
+    
+    #convert to Farenheit
+    temperature = int((9/5)*temperature + 32)
+    
     time.sleep(1)
     #write to Arduino Serial
     if ser.isOpen():
-        ser.write(nums[0]);
-        
 
-        print(temperature)
+        #necessary spacing 
+        if temperature < 10 :
+            ser.write('0'+ str(temperature))
+            print('0'+ str(temperature))
+        else:
+            ser.write(str(temperature))
+            print(str(temperature))
 
         time.sleep(1)
         ser.flushOutput()
