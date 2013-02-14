@@ -18,8 +18,6 @@
  */
  
 // Pin 13 has an LED connected on most Arduino boards.
-// give it a name:
-//int led = 2;
 int led_test = 13; 
 
 int offset = 48; // offset for ascii digits 
@@ -47,8 +45,7 @@ void setup() {
   // initialize Serial 
   Serial.begin(9600);  
   
-  // initialize the digital pin as an output.
-  //pinMode(led, OUTPUT);   
+  // initialize the pin as an output.  
   pinMode(led_test, OUTPUT);  
 }
 
@@ -133,20 +130,6 @@ void loop() {
       }
     }
     
-  }
- 
- 
- /*
- if(current_temperature > 32 || current_temperature <= 36){
-      digitalWrite(led_test, HIGH);   // turn the LED on (HIGH is the voltage level)
-    } 
-  else if(current_temperature<= 32 || current_temperature > 30){
-      digitalWrite(led_test, LOW);    // turn the LED off by making the voltage LOW
-      delay(10);               // delay
-  }
-  
-  */
-    
- 
+  } 
  
 }
