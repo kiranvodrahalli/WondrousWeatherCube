@@ -12,8 +12,8 @@ SIDE 6: NASDAQ %change (Red = -, Green = +: color shades are scaled)
 The other four sides are transparent so you the color of the cube can diffuse 
 nicely.
 
-The cube istinguishes which app is running through the use of a photosensor:
+The cube distinguishes which app is running through the use of a photosensor:
 If the photosensor is facedown, the weather app will run. If the photosensor is
-faceup, the NASDAQ app will run. 
+face-up, the NASDAQ app will run. 
 
 In the future, the cube could potentially be extended to more functionality. 

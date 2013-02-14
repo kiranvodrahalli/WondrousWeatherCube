@@ -32,11 +32,10 @@ int red = 0;
 int green = 0;
 int blue = 0; // will stay 0 for stock color 
 
-//initialize to 0 (has no sign) 
-int stockSign = 0; // '+' = <insert number code>, '-' = <insert number code>
+int stockSign = 0; // initialize to 0 (has no sign)
 int stockMag = 0; //magnitude of the stock change -- given by the value of R or G
 
-int minTemp = 0; //assume min temperature is 10 degrees F
+int minTemp = 0; //assume min temperature is 0 degrees F
 int maxTemp = 100; // assume max temperature is 100 degrees F
 double scale = 255/100; //temperature scale translation 
 
@@ -116,7 +115,7 @@ void loop() {
           /*
           Serial.println(current_tens);
           Serial.println(current_unit); */
-          Serial.println("Scaled Temperature: "); 
+          Serial.println("Temperature Magnitude: "); 
           Serial.println(current_temperature);  
           analogWrite(led_test, current_temperature); 
           delay(2); 

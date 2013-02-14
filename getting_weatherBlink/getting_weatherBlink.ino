@@ -1,13 +1,12 @@
 /*
-  Blink
+  getting_weatherBlink
+  tests getting weather data only 
   Turns on an LED on for one second, then off for one second, repeatedly.
- 
-  This example code is in the public domain.
  */
  
 // Pin 13 has an LED connected on most Arduino boards.
 // give it a name:
-int led = 2;
+//int led = 2;
 int led_test = 13; 
 int offset = 48; // offset for ascii digits 
 int current_unit = -1; //current units digit
@@ -20,7 +19,7 @@ void setup() {
   Serial.begin(9600);  
   
   // initialize the digital pin as an output.
-  pinMode(led, OUTPUT);   
+  //pinMode(led, OUTPUT);   
   pinMode(led_test, OUTPUT);  
 }
 
@@ -42,7 +41,7 @@ void loop() {
     Serial.println(current_tens);
     Serial.println(current_unit);
     Serial.println(current_temperature);  
-    analogWrite(led, current_temperature*5); 
+    analogWrite(led_test, current_temperature*5); 
     delay(2); 
     
   }
