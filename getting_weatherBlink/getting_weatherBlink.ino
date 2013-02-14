@@ -31,7 +31,7 @@ void loop() {
   if(Serial.available() > 0){
     current_tens = Serial.read() - offset;
     //do something with what's being read in 
-    Serial.println("Current temperature in degrees C: "); 
+    Serial.println("Current temperature in degrees F: "); 
     /*
     digitalWrite(led_test, HIGH);  
     delay(1); 
