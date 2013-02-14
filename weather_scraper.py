@@ -14,7 +14,9 @@ from bs4 import BeautifulSoup
 #using the serial (for Arduino)
 #port might be different for different computers
 ser = serial.Serial('/dev/tty.usbmodem621', 9600)
-
+ser.close()
+ser.open()
+print("Serial attached"); 
 while True:
     #get the html code from weather.com for Princeton
     html = urllib2.urlopen("http://www.weather.com/weather/right-now/USNJ0427:1:US")
@@ -28,15 +30,15 @@ while True:
     nums = re.findall(r'\d+', text)
     temperature = int(float(nums[0]))
 
-    time.sleep(2)
+    time.sleep(1)
     #write to Arduino Serial
+    if ser.isOpen():
+        ser.write(nums[0]);
+        
 
-    ser.write(nums[0])
+        print(temperature)
 
-
-    print(temperature)
-
-    time.sleep(10)
-    ser.flushOutput()
+        time.sleep(1)
+        ser.flushOutput()
 
 
