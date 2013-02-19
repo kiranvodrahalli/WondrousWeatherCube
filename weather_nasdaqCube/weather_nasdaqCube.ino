@@ -123,12 +123,16 @@ void loop() {
         
           //scale the temperature 
           current_temperature = scale*current_temperature; 
-          /*
-          Serial.println(current_tens);
-          Serial.println(current_unit); */
+          
+          //Serial.println(current_tens);
+          //Serial.println(current_unit); 
           Serial.println("Temperature Magnitude: "); 
           Serial.println(current_temperature);  
-          analogWrite(led_test, current_temperature); 
+          //analogWrite(led_test, current_temperature); 
+          //digitalWrite(led_test, HIGH); 
+          //digitalWrite(led_test, LOW);
+          
+          /* WRITE CODE HERE TO MAKE THE LEDS WORK PROPERLY FOR WEATHER */
           delay(2); 
         }
         else{

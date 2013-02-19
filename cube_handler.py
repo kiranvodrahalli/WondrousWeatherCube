@@ -12,7 +12,8 @@
 import nasdaq_scraper 
 import weather_scraper 
 import serial
-import time 
+import time
+import re
 
 #runWeather
 #runNASDAQ
@@ -22,35 +23,35 @@ ser = serial.Serial('/dev/tty.usbmodem411', 9600)
 ser.close()
 ser.open()
 
+
 print("Serial attached")
-photovoltage = ser.readline()
-print("length of string: ")
-print(len(photovoltage))
-while len(photovoltage) < 5:
+if ser.readable():
     photovoltage = ser.readline()
-print("length of string: ")
-print(len(photovoltage))
+
+while re.match(r'[0-9][0-9][0-9]\r\n', photovoltage) == None:
+    if ser.readable():
+        photovoltage = ser.readline()
+
 photovoltage = int(photovoltage)
+
 
 print("Photovoltage: ")
 print(photovoltage)
 while True:
 
     print("newloop")
-    if photovoltage < 150:
+    if photovoltage < 180:
         nasdaq_scraper.runNASDAQ(ser)
     else:
         weather_scraper.runWeather(ser)
 
     if ser.isOpen():
-        photovoltage = ser.readline()
-        print("length of string: ")
-        print(len(photovoltage))
-        
-        while len(photovoltage) < 5:
+        if ser.readable():
             photovoltage = ser.readline()
-        print("length of string: ")
-        print(len(photovoltage))
+        
+        while re.match(r'[0-9][0-9][0-9]\r\n', photovoltage) == None:
+            if ser.readable():
+                photovoltage = ser.readline()
         
         photovoltage = int(photovoltage)
         print("Photovoltage: ")
