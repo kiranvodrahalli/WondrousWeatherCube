@@ -16,9 +16,6 @@
   orange. The hotter it is, the more orange the cube glows. 
    
  */
- 
-// Pin 13 has an LED connected on most Arduino boards.
-int led_test = 13; 
 
 int offset = 48; // offset for ascii digits 
 int current_unit = -1; //current units digit
@@ -26,6 +23,10 @@ int current_tens = -1; //current tens digit
 int current_hundreds = -1; //current hundreds digit (only used for color of the stock: red/green)
 int current_temperature = -1; // current temperature from python weather scraper 
 int current_stock_color = -1; //current stock color from python nasdaq scraper 
+
+//pins controlling red, green leds (with PWM).
+int greenPin = 3;
+int redPin = 5;
 
 //RGB
 int red = 0;
@@ -46,8 +47,7 @@ void setup() {
   // initialize Serial 
   Serial.begin(9600);  
   
-  // initialize the pin as an output.  
-  pinMode(led_test, OUTPUT);  
+  
   // initialize the photocell as an input. 
   pinMode(A0, INPUT);
 }
@@ -99,19 +99,13 @@ void loop() {
       
       /* USE THE RGB VALUES TO MAKE THE TRICOLOR LED GLOW PROPERLY */
       
-      /*WRITE CODE HERE */
+      analogWrite(redPin, red);
+      analogWrite(greenPin, green);
       
-      /* Use the magnitude of the stock change to dictate the blinking. 
-       * The higher the stock change, the faster the blinking. */
-      digitalWrite(led_test, HIGH); 
-      delay(stockMag/255); 
-      digitalWrite(led_test, LOW);
-      delay(stockMag/255); 
     }
       
     //weather case  
     else{  
-      
       if(current_tens > 0){
         //use the temperature 
         Serial.println("Current temperature in degrees F: "); 
@@ -132,7 +126,13 @@ void loop() {
           //digitalWrite(led_test, HIGH); 
           //digitalWrite(led_test, LOW);
           
-          /* WRITE CODE HERE TO MAKE THE LEDS WORK PROPERLY FOR WEATHER */
+          /* Code to write weather to LEDS */
+          
+          //Green for warm weather, red for cold!
+          int displayTemp = map(current_temperature, 0, 100, 0, 255);
+          analogWrite(redPin, displayTemp);
+          analogWrite(greenPin, (255-displayTemp));
+          
           delay(2); 
         }
         else{
