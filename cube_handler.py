@@ -23,14 +23,43 @@ ser.close()
 ser.open()
 
 print("Serial attached")
+photovoltage = ser.readline()
+print("length of string: ")
+print(len(photovoltage))
+while len(photovoltage) < 5:
+    photovoltage = ser.readline()
+print("length of string: ")
+print(len(photovoltage))
+photovoltage = int(photovoltage)
 
+print("Photovoltage: ")
+print(photovoltage)
 while True:
-    
+
+    print("newloop")
+    if photovoltage < 150:
+        nasdaq_scraper.runNASDAQ(ser)
+    else:
+        weather_scraper.runWeather(ser)
+
     if ser.isOpen():
         photovoltage = ser.readline()
+        print("length of string: ")
+        print(len(photovoltage))
+        
+        while len(photovoltage) < 5:
+            photovoltage = ser.readline()
+        print("length of string: ")
+        print(len(photovoltage))
+        
+        photovoltage = int(photovoltage)
+        print("Photovoltage: ")
         print(photovoltage)
         time.sleep(1)
-       
+        
+
+
+
 
     #OUTLINE
 

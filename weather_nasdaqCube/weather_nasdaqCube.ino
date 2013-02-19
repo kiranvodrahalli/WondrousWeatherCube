@@ -54,9 +54,13 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
+  
   //input 
   photo_voltage = analogRead(A0);
-  Serial.println(photo_voltage); 
+  Serial.println(photo_voltage);
+  //delay(1000); 
+  
+  
   
   if(Serial.available() > 0){
     
