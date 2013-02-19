@@ -1,7 +1,7 @@
 /*
   COS 436: Lab 0: Wondrous Weather Cube
-  Author: Kiran Vodrahalli 
-  Date: Feb 14, 2013
+  Author: Kiran Vodrahalli, Dale Markowitz, Collin Stedman 
+  Date: Feb 19, 2013
   weather_nasdaqCube.ino: Depending on what the serial reads, either
   interprets the incoming data as a NASDAQ percentage change (via python nasdaq_scraper)
   or as the temperature at Princeton University in degrees Farenheit (via python weather_scraper)
@@ -11,9 +11,9 @@
   correspondingly, and the magnitude changes the intensity of the light color. 
   
   WEATHER:
-  If the temperature <= 50 degrees Farenheit, the cube glows blue -- the colder it is, the
-  more intense the blue color. If the temperature > 50 degrees Farenheit, the cube glows
-  orange. The hotter it is, the more orange the cube glows. 
+  If the temperature <= 50 degrees Farenheit, the cube glows red -- the colder it is, the
+  more intense the red color. If the temperature > 50 degrees Farenheit, the cube glows
+  green. The hotter it is, the greener the cube glows. 
    
  */
 

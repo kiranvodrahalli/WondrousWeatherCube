@@ -1,13 +1,13 @@
 /* COS 436 Lab 0
  * Authors: Kiran Vodrahalli, Collin Stedman, Raymond Zhong, Dale Markowitz
- * Updated: Feb 14, 2013
+ * Updated: Feb 19, 2013
  * WONDROUS WEATHER CUBE */ 
 
 A cube that tells you the local weather. And delta NASDAQ. 
 Switch between these two functionalities by flipping the cube over.
  
-In WEATHER mode, the cube glows blue if it's cold, and orange if it's warm.
-The shade of blue/orange is proportional to the magnitude of the temperature.
+In WEATHER mode, the cube glows red if it's cold, and green if it's warm.
+The shade of color is proportional to the magnitude of the temperature.
 
 In NASDAQ mode, the cube glows green if there was a percent increase in NASDAQ
 recently, and red if there was a percept decrease. The shade of green/red is

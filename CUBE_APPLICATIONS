@@ -1,11 +1,11 @@
 /* COS 436 Lab 0: Wondrous Weather Cube
  * Author: Kiran Vodrahalli 
- * Date: Feb 14, 2013
+ * Date: Feb 19, 2013
  */
 
 HOW THE WONDROUS WEATHER CUBE WORKS
 
-SIDE 1: Weather (Hot = orange, Cold = blue: color shades are scaled)
+SIDE 1: Weather (Warm = green, Cold = red: color shades are scaled)
 SIDE 6: NASDAQ %change (Red = -, Green = +: color shades are scaled)
         Also, the higher the magnitude, the faster the cube blinks. 
 

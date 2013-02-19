@@ -6,7 +6,8 @@
 # then the weather side must be faceup, so run the weather app. 
 # If the sensor is not receiving light, the NASDAQ side is faceup, so run
 # the nasdaq app. 
-# Uses the nasdaq_scraper.py and weather_scraper.py files. 
+# Uses the nasdaq_scraper.py and weather_scraper.py files, as well as 
+# PySerial, time, and regular expressions. 
 
 #imports
 import nasdaq_scraper 
