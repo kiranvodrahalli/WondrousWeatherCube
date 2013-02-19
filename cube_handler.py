@@ -1,4 +1,4 @@
-# COS 436: Lab 0 : Wondrous Weather ube
+# COS 436: Lab 0 : Wondrous Weather Cube
 # Author: Kiran Vodrahalli 
 # Date: Feb 14, 2013
 # cube_handler.py: Fetches data from the arduino device as to whether the
@@ -9,18 +9,28 @@
 # Uses the nasdaq_scraper.py and weather_scraper.py files. 
 
 #imports
-import nasdaq_scraper # need to define the file as a function
-import weather_scraper # need to define the file as a function
+import nasdaq_scraper 
+import weather_scraper 
 import serial
+import time 
+
+#runWeather
+#runNASDAQ
 
 #get the Arduino serial
-ser = serial.Serial('/dev/tty.usbmodem621', 9600)
+ser = serial.Serial('/dev/tty.usbmodem411', 9600)
 ser.close()
 ser.open()
 
 print("Serial attached")
 
 while True:
+    
+    if ser.isOpen():
+        photovoltage = ser.readline()
+        print(photovoltage)
+        time.sleep(1)
+       
 
     #OUTLINE
 

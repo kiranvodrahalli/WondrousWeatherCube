@@ -12,41 +12,42 @@ import serial
 import time 
 from bs4 import BeautifulSoup
 
-#using the serial (for Arduino)
-#port might be different for different computers
-#assume that the min temperature is 0 degrees F
+def runWeather():
+    #using the serial (for Arduino)
+    #port might be different for different computers
+    #assume that the min temperature is 0 degrees F
 
-ser = serial.Serial('/dev/tty.usbmodem621', 9600)
-ser.close()
-ser.open()
-print("Serial attached"); 
-while True:
-    #get the html code from weather.com for Princeton
-    html = urllib2.urlopen("http://www.weather.com/weather/right-now/USNJ0427:1:US")
+    ser = serial.Serial('/dev/tty.usbmodem411', 9600)
+    ser.close()
+    ser.open()
+    print("Serial attached"); 
+    while True:
+        #get the html code from weather.com for Princeton
+        html = urllib2.urlopen("http://www.weather.com/weather/right-now/USNJ0427:1:US")
 
-    #find the part in the html code where it gives the weather
-    soup = BeautifulSoup(html, "html5lib")
-    report = soup.find_all("meta", content=re.compile("It's"))
+        #find the part in the html code where it gives the weather
+        soup = BeautifulSoup(html, "html5lib")
+        report = soup.find_all("meta", content=re.compile("It's"))
 
-    #string operations to get as an integer
-    text = str(report[0])
-    #using regular expressions 
-    nums = re.findall(r'\d+', text)
-    temperature = int(float(nums[0]))
+        #string operations to get as an integer
+        text = str(report[0])
+        #using regular expressions 
+        nums = re.findall(r'\d+', text)
+        temperature = int(float(nums[0]))
     
-    time.sleep(1)
-    #write to Arduino Serial
-    if ser.isOpen():
-
-        #necessary spacing 
-        if temperature < 10 :
-            ser.write('0'+ str(temperature))
-            print('0'+ str(temperature))
-        else:
-            ser.write(str(temperature))
-            print(str(temperature))
-
         time.sleep(1)
-        ser.flushOutput()
+        #write to Arduino Serial
+        if ser.isOpen():
+
+            #necessary spacing 
+            if temperature < 10 :
+                ser.write('0'+ str(temperature))
+                print('0'+ str(temperature))
+            else:
+                ser.write(str(temperature))
+                print(str(temperature))
+
+            time.sleep(1)
+            ser.flushOutput()
 
 

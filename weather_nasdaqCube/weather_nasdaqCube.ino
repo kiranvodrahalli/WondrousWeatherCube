@@ -35,9 +35,11 @@ int blue = 0; // will stay 0 for stock color
 int stockSign = 0; // initialize to 0 (has no sign)
 int stockMag = 0; //magnitude of the stock change -- given by the value of R or G
 
-int minTemp = 0; //assume min temperature is 0 degrees F
+int minTemp = 0; // assume min temperature is 0 degrees F
 int maxTemp = 100; // assume max temperature is 100 degrees F
-double scale = 255/100; //temperature scale translation 
+double scale = 255/100; // temperature scale translation 
+
+int photo_voltage = 0; // analog value of the photo voltage 
 
 // the setup routine runs once when you press reset:
 void setup() {          
@@ -46,14 +48,19 @@ void setup() {
   
   // initialize the pin as an output.  
   pinMode(led_test, OUTPUT);  
+  // initialize the photocell as an input. 
+  pinMode(A0, INPUT);
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
+  //input 
+  photo_voltage = analogRead(A0);
+  Serial.println(photo_voltage); 
   
   if(Serial.available() > 0){
-    current_tens = Serial.read() - offset;
     
+    current_tens = Serial.read() - offset;
     //nasdaq case 
     if(current_tens+offset == '+' || current_tens+offset == '-'){
       if(current_tens+offset == '+'){
