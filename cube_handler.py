@@ -52,7 +52,7 @@ print(photovoltage)
 while True:
 
     print("newloop")
-    if photovoltage < 180:
+    if photovoltage < 400:
         nasdaq_scraper.runNASDAQ(ser)
     else:
         weather_scraper.runWeather(ser)
