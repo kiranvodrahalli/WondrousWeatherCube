@@ -1,6 +1,6 @@
 # COS 436: Lab 0 : Wondrous Weather Cube
-# Author: Kiran Vodrahalli 
-# Date: Feb 14, 2013
+# Author: Kiran Vodrahalli, Collin Stedman 
+# Date: Feb 19, 2013
 # cube_handler.py: Fetches data from the arduino device as to whether the
 # photosensor is receiving light or not. If the sensor is receiving light, 
 # then the weather side must be faceup, so run the weather app. 
@@ -15,8 +15,20 @@ import serial
 import time
 import re
 
-#runWeather
-#runNASDAQ
+
+#OUTLINE
+
+#get the data from the photosensor (light or no light)
+
+#if light --> weather side
+#call the weather_scraper function
+
+#if no light --> nasdaq side
+#call the nasdaq_scraper function
+
+#if there is an change in the data from the photosensor, interrupt the current
+#function that's running and switch to the other one immediately.
+
 
 #get the Arduino serial
 ser = serial.Serial('/dev/tty.usbmodem411', 9600)
@@ -57,23 +69,4 @@ while True:
         print("Photovoltage: ")
         print(photovoltage)
         time.sleep(1)
-        
-
-
-
-
-    #OUTLINE
-
-    #get the data from the photosensor (light or no light)
-
-    #if light --> weather side
-    #call the weather_scraper function
-
-    #if no light --> nasdaq side
-    #call the nasdaq_scraper function
-
-    #if there is an change in the data from the photosensor, interrupt the current
-    #function that's running and switch to the other one immediately.
-
-    # MAKE SURE THAT THE FUNCTION THAT IS CURRENTLY RUNNING DOES NOT KEEP RUNNING
-    # WHEN YOU ATTEMPT TO SWITCH OVER 
+         
