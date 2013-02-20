@@ -60,10 +60,12 @@ while True:
 
     if ser.isOpen():
         if ser.readable():
+            ser.flushInput()
             photovoltage = ser.readline()
         
         while re.match(r'[0-9][0-9][0-9]\r\n', photovoltage) == None:
             if ser.readable():
+                ser.flushInput()
                 photovoltage = ser.readline()
         
         photovoltage = int(photovoltage)
