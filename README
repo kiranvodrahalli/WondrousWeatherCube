@@ -13,4 +13,6 @@ In NASDAQ mode, the cube glows green if there was a percent increase in NASDAQ
 recently, and red if there was a percept decrease. The shade of green/red is
 proportional to the magnitude of the increase/decrease. Also, the cube blinks
 faster if the magnitude of the increase/decrease is higher (more alarming!)
- 
+
+For more info: 
+http://blogs.princeton.edu/humancomputerinterface/2013/02/20/lab-0-the-wondrous-weather-cube-our-very-own-companion-cube/ 
