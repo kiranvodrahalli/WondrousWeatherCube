@@ -54,13 +54,9 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
-  
   //input 
   photo_voltage = analogRead(A0);
   Serial.println(photo_voltage);
-  //delay(1000); 
-  
-  
   
   if(Serial.available() > 0){
     
@@ -99,8 +95,11 @@ void loop() {
       
       /* USE THE RGB VALUES TO MAKE THE TRICOLOR LED GLOW PROPERLY */
       
+      analogWrite(redPin, 0);
+      analogWrite(greenPin, 0);
       analogWrite(redPin, red);
       analogWrite(greenPin, green);
+     
       
     }
       
@@ -130,6 +129,8 @@ void loop() {
           
           //Green for warm weather, red for cold!
           int displayTemp = map(current_temperature, 0, 100, 0, 255);
+          analogWrite(redPin, 0);
+          analogWrite(greenPin, 0);
           analogWrite(redPin, displayTemp);
           analogWrite(greenPin, (255-displayTemp));
           

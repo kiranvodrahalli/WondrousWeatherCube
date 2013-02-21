@@ -51,21 +51,18 @@ photovoltage = int(photovoltage)
 print("Photovoltage: ")
 print(photovoltage)
 while True:
-
+    #ser.flushInput()
     print("newloop")
-    if photovoltage < 400:
+    if photovoltage < 600:
         nasdaq_scraper.runNASDAQ(ser)
     else:
         weather_scraper.runWeather(ser)
 
     if ser.isOpen():
         if ser.readable():
-            ser.flushInput()
             photovoltage = ser.readline()
-        
         while re.match(r'[0-9][0-9][0-9]\r\n', photovoltage) == None:
             if ser.readable():
-                ser.flushInput()
                 photovoltage = ser.readline()
         
         photovoltage = int(photovoltage)
